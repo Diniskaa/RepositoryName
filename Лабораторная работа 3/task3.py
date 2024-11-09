@@ -1,12 +1,18 @@
 # TODO  Напишите функцию count_letters
 
 def count_letters(main_str):
+    # Создаем пустой словарь для подсчета букв
     dictionary = {}
+    # Проходим по каждому символу в строке
     for char in main_str:
+        # Проверяем, является ли символ буквой
         if char.isalpha():
+            # Преобразуем букву в нижний регистр
             char_low = char.lower()
+            # Если буква уже есть в словаре делаем + 1 в счётчик буквы
             if char_low in dictionary:
                 dictionary[char_low] += 1
+             # Если буква ещё не встречалась, добавляем её в словарь
             else:
                 dictionary[char_low] = 1
     return dictionary
@@ -14,8 +20,11 @@ def count_letters(main_str):
 # TODO Напишите функцию calculate_frequency
 
 def calculate_frequency(dictionary):
+    # Создаем пустой словарь для хранения частоты
     frequency = {}
-    total = sum(dictionary.values())  # Общее количество букв
+    # Общее количество букв
+    total = sum(dictionary.values())
+    # Проходим по каждой букве и её количеству в словаре
     for letter, count in dictionary.items():
         frequency[letter] = round(count / total, 2)  # Частота с округлением до двух знаков
 
@@ -57,7 +66,7 @@ main_str = """
 Свои мне сказки говорил.
 """
 # TODO Распечатайте в столбик букву и её частоту в тексте
-
+# Вызов функций для подсчета количества букв и их частоты
 letter_count = count_letters(main_str)
 frequency = calculate_frequency(letter_count)
 
